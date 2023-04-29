@@ -29,7 +29,7 @@ function Table() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get("http://localhost:3001/api/myendpoint");
+        const result = await axios.get("http://localhost:3001/api/table");
         setData(result.data);
       } catch (error) {
         console.error(error);
@@ -49,7 +49,7 @@ function Table() {
           column3: row.column3,
         };
       });
-      await axios.post("http://localhost:3001/api/myendpoint", {
+      await axios.post("http://localhost:3001/api/table", {
         data: updatedData,
       });
       alert("Data successfully sent to server!");
