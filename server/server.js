@@ -9,7 +9,7 @@ const dbConfig = {
   server: "hidden",
   database: "hidden",
   options: {
-    trustServerCertificate: true, // change to false for production use-cases
+    trustServerCertificate: true, // change to false for prod
   },
 };
 
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/api/myendpoint", async (req, res) => {
+app.get("/api/table", async (req, res) => {
   try {
     const pool = new sql.ConnectionPool(dbConfig);
     await pool.connect();
@@ -42,7 +42,7 @@ app.get("/api/myendpoint", async (req, res) => {
   }
 });
 
-app.post("/api/myendpoint", async (req, res) => {
+app.post("/api/table", async (req, res) => {
   console.log("Received data:", req.body);
   const data = req.body.data;
   const pool = new sql.ConnectionPool(dbConfig);
